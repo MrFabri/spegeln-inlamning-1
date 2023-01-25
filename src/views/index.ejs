@@ -5,79 +5,51 @@
 <body>
     <%- include('components/header') %>
     <%- include('components/nav') %>
-
+    
     <main class="sec clear-main">
-        <div class="sec-cont">
-            <!-- Movie Accordion -->
-            <section class="accordion-cont">
-                <!-- Next / Before Buttons -->
+        <!-- Image accordion -->
+        <script src="static/js/accordion.js" defer></script>
+        <section class="sec-cont">
+            <div class="accordion-cont">
                 <button class="slide-btn prev">
-                    <img src="static/images/arrow-left-circle.svg" alt="previosly movie" />
+                    <img src="static/images/arrow-left-circle.svg" alt="previosly movie"/>
                 </button>
                 <button class="slide-btn next">
-                    <img src="static/images/arrow-right-circle.svg" alt="next movie" />
+                    <img src="static/images/arrow-right-circle.svg" alt="next movie"/>
                 </button>
     
-                <!-- Sliders -->
                 <div class="slider">
-                    <section class="slide" id="first-slide">
-                        <div class="slide-content">
-                            <h2>MOVIE NAME</h2>
-                            <h3>SUBTITLE</h3>
-                            <a href="/" class="slide-btn">Biljetter</a>
-                        </div>
-                        <img src="https://biografspegeln.se/media/stills/3005/1024/04e39f44-fc79-42d9-b724-ff8cebc3ef03.jpeg"
-                            alt="movie banner" />
-                    </section>
-    
+                    <% movies.forEach((movie) => { %>
                     <section class="slide">
                         <div class="slide-content">
-                            <h2>MOVIE NAME</h2>
-                            <h3>SUBTITLE</h3>
-                            <a href="/" class="slide-btn">Biljetter</a>
+                            <h2><%= movie.attributes.title %></h2>
+                            <h3><%= movie.attributes.intro.substr(0, 60)  %>...</h3>
+                            <a href="/movie/<%= movie.id %>" class="slide-btn">Biljetter</a>
                         </div>
-                        <img src="https://biografspegeln.se/media/stills/2801/1024/57cda8f6-7101-4430-bd5f-95c841e0ac37.jpg"
+                        <img src="<%= movie.attributes.image.url %>"
                             alt="movie banner" />
                     </section>
-                    <section class="slide">
-                        <div class="slide-content">
-                            <h2>MOVIE NAME</h2>
-                            <h3>SUBTITLE</h3>
-                            <a href="/" class="slide-btn">Biljetter</a>
-                        </div>
-                        <img src="https://biografspegeln.se/media/stills/2956/1024/ec0b06e3-1860-4394-85ff-d590d6ced08c.jpg"
-                            alt="movie banner" />
-                    </section>
-                    <section class="slide">
-                        <div class="slide-content">
-                            <h2>MOVIE NAME</h2>
-                            <h3>SUBTITLE</h3>
-                            <a href="/" class="slide-btn">Biljetter</a>
-                        </div>
-                        <img src="https://biografspegeln.se/media/stills/3031/1024/ed7903e9-a804-4790-8740-58b3e9c7c4ed.jpeg"
-                            alt="movie banner" />
-                    </section>
+                    <% }); %>
                 </div>
-            </section>
-        </div>
-    
-        <script src="static/js/accordion.js" defer></script>
-    
-        <section class="show-movies sec-cont">
-            <div class="movies-lists-container">
-                <h1 class="/-title">PÅ BION JUST NU</h1>
-                <h2>KOMEDI</h2>
-                <ul class="comedy-start-list list-styling"></ul>
-                <h2>ACTION</h2>
-                <ul class="action-start-list list-styling"></ul>
-                <h2>DRAMA</h2>
-                <ul class="drama-start-list list-styling"></ul>
+            </div>
+        </section>
+
+        <!-- Movies right now -->
+        <section class="on-the-cinema sec-cont">
+            <div class="movies">
+                <h1>PÅ BION JUST NU</h1>
+                <ul>
+                    <% movies.forEach((movie) => { %>
+                        <a href="/movie/<%= movie.id %>">
+                            <img src="<%= movie.attributes.image.url %>" alt="movie image">
+                        </a>
+                    <% }); %>
+                </ul>
             </div>
     
             <div class="sidebar sec-cont">
                 <h3>Dagens visningar:</h3>
                 <h4 class="todays-date"></h4>
-                <ul class="todays-shows"></ul>
             </div>
         </section>
     </main>

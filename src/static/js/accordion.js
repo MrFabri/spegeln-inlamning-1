@@ -1,5 +1,5 @@
-const firstSlide = document.querySelector('#first-slide');
 const slides = document.querySelectorAll('.slide');
+const firstSlide = slides[0];
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 

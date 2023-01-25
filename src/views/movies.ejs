@@ -6,28 +6,16 @@
     <%- include('components/nav') %>
 
     <main class="movies sec">
-      <section class="movies-content sec-cont">
-        <div>
-          <h2 class="movies-h2"></h2>
-          <nav class="sec">
-            <ul class="movies-category-list">
-              <li class="movies-category-element">
-                <a href="movies" class="comedy-category">Komedi</a>
-              </li>
-              <li class="movies-category-element">
-                <a href="movies" class="action-category">Action</a>
-              </li>
-              <li class="movies-category-element">
-                <a href="movies" class="drama-category">Drama</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <ul class="movies-list"></ul>
+      <section class="movies sec-cont" style="margin-top: 3rem;">
+        <ul class="movies-list">
+          <% movies.forEach((movie) => { %>
+            <a href="/movie/<%= movie.id %>">
+                <img src="<%= movie.attributes.image.url %>" alt="movie image">
+            </a>
+          <% }); %>
+        </ul>
       </section>
     </main>
-    
-    <script type="module" src="static/js/movies.js" defer></script>
 
     <%- include('components/footer') %>
   </body>

@@ -21,43 +21,17 @@
     
           <!-- Sliders -->
           <div class="slider">
-            <section class="slide" id="first-slide">
-              <div class="slide-content">
-                <h2>MOVIE NAME</h2>
-                <h3>SUBTITLE</h3>
-                <a href="/" class="slide-btn">Biljetter</a>
-              </div>
-              <img src="https://biografspegeln.se/media/stills/3005/1024/04e39f44-fc79-42d9-b724-ff8cebc3ef03.jpeg"
-                alt="movie banner" />
-            </section>
-    
+            <% movies.forEach((movie) => { %>
             <section class="slide">
-              <div class="slide-content">
-                <h2>MOVIE NAME</h2>
-                <h3>SUBTITLE</h3>
-                <a href="/" class="slide-btn">Biljetter</a>
-              </div>
-              <img src="https://biografspegeln.se/media/stills/2801/1024/57cda8f6-7101-4430-bd5f-95c841e0ac37.jpg"
-                alt="movie banner" />
+                <div class="slide-content">
+                    <h2><%= movie.attributes.title %></h2>
+                    <h3><%= movie.attributes.intro.substr(0, 60)  %>...</h3>
+                    <a href="/movie/<%= movie.id %>" class="slide-btn">Biljetter</a>
+                </div>
+                <img src="<%= movie.attributes.image.url %>"
+                    alt="movie banner" />
             </section>
-            <section class="slide">
-              <div class="slide-content">
-                <h2>MOVIE NAME</h2>
-                <h3>SUBTITLE</h3>
-                <a href="/" class="slide-btn">Biljetter</a>
-              </div>
-              <img src="https://biografspegeln.se/media/stills/2956/1024/ec0b06e3-1860-4394-85ff-d590d6ced08c.jpg"
-                alt="movie banner" />
-            </section>
-            <section class="slide">
-              <div class="slide-content">
-                <h2>MOVIE NAME</h2>
-                <h3>SUBTITLE</h3>
-                <a href="/" class="slide-btn">Biljetter</a>
-              </div>
-              <img src="https://biografspegeln.se/media/stills/3031/1024/ed7903e9-a804-4790-8740-58b3e9c7c4ed.jpeg"
-                alt="movie banner" />
-            </section>
+            <% }); %>
           </div>
         </section>
       </div>

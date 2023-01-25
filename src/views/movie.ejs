@@ -7,11 +7,13 @@
 
     <main class="sec">
       <section class="sec-cont">
-        <h1 class="description"></h1>
+        <div class="banner">
+          <h1> <%= movie.attributes.title %></h1>
+          <img src="<%= movie.attributes.image.url %>" alt="movie image">
+        </div>
+        <p class="banner-mov-desc"> <%= movie.attributes.intro %> </p>
       </section>
     </main>
-    
-    <script type="module" src="static/js/movie-info.js" defer></script>
 
     <%- include('components/footer') %>
   </body>

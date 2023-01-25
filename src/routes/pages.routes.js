@@ -1,11 +1,30 @@
 import { Router } from 'express';
+import { loadMovies, loadMovie } from '../helpers/movies.js';
 
 const router = Router();
 const title = "Biograf Luleå";
 
-router.get('/', (req, res)=> {
+router.get('/', async (req, res)=> {
+    const movies = await loadMovies();
     res.render('index', {
-        title
+        title,
+        movies
+    });
+});
+
+router.get('/movie/:id', async (req, res)=> {
+    const movie = await loadMovie(req.params.id);
+    res.render('movie', {
+        title: `Film info | ${title}`,
+        movie
+    });
+});
+
+router.get('/movies', async (req, res)=> {
+    const movies = await loadMovies();
+    res.render('movies', {
+        title: `Filmer | ${title}`,
+        movies
     });
 });
 
@@ -27,21 +46,11 @@ router.get('/events', (req, res)=> {
     });
 });
 
-router.get('/movie-info', (req, res)=> {
-    res.render('movie-info', {
-        title: `Film info | ${title}`
-    });
-});
-
-router.get('/movies', (req, res)=> {
-    res.render('movies', {
-        title: `Filmer | ${title}`
-    });
-});
-
-router.get('/restaurant', (req, res)=> {
+router.get('/restaurant', async (req, res)  => {
+    const movies = await loadMovies();
     res.render('restaurant', {
-        title: `Restaurang | ${title}`
+        title: `Restaurang | ${title}`,
+        movies
     });
 });
 

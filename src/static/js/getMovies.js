@@ -1,6 +1,6 @@
 export async function getMovies() {
-  const response = await fetch("/static/movies.json");
+  const response = await fetch("https://plankton-app-xhkom.ondigitalocean.app/api/movies");
   const data = await response.json();
-  const allMovies = data.movies;
-  return allMovies;
+
+  return data.data;
 }

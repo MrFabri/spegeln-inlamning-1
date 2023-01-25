@@ -1,11 +1,11 @@
 import express from 'express';
 import { resolve } from 'path';
 import pageRoutes from './routes/pages.routes.js';
-import 'ejs';
+import 'ejs'
 
 const app = express();
 
-app.set('port', 8080);
+app.set('port', 5080);
 app.set('view engine', 'ejs');
 app.set('views', resolve('src/views'));
 app.use('/static', express.static(resolve('src/static')));
