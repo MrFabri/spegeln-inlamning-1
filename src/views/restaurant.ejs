@@ -4,38 +4,8 @@
   <body>
     <%- include('components/header') %>
     <%- include('components/nav') %>
-    
-    <script src="static/js/accordion.js" defer></script>
 
-    <main class="sec clear-main">
-      <div class="sec-cont">
-        <!-- Movie Accordion -->
-        <section class="accordion-cont">
-          <!-- Next / Before Buttons -->
-          <button class="slide-btn prev">
-            <img src="static/images/arrow-left-circle.svg" alt="previosly movie" />
-          </button>
-          <button class="slide-btn next">
-            <img src="static/images/arrow-right-circle.svg" alt="next movie" />
-          </button>
-    
-          <!-- Sliders -->
-          <div class="slider">
-            <% movies.forEach((movie) => { %>
-            <section class="slide">
-                <div class="slide-content">
-                    <h2><%= movie.attributes.title %></h2>
-                    <h3><%= movie.attributes.intro.substr(0, 60)  %>...</h3>
-                    <a href="/movie/<%= movie.id %>" class="slide-btn">Biljetter</a>
-                </div>
-                <img src="<%= movie.attributes.image.url %>"
-                    alt="movie banner" />
-            </section>
-            <% }); %>
-          </div>
-        </section>
-      </div>
-    
+    <main class="sec clear-main">    
       <div class="undercategory sec-cont">
         <h2 class="restaurant-text about-salons res-title">Luleå bios dine-in bistro</h2>
         <nav class="sec">
@@ -50,7 +20,7 @@
         </nav>
       </div>
     
-      <section class="show-sidebar-next sec-cont">
+      <section class="show-sidebar-next sec-cont" style="margin-bottom: 5rem;">
     
         <div class="restaurant-container ">
           <img class="restaurant" alt="picture of salon with tables" src="static/images/cinebistro.webp" />
@@ -94,11 +64,6 @@
               </ul>
             </div>
           </div>
-        </div>
-        <div class="sidebar sec-cont res-sidebar">
-          <h3>Dagens visningar:</h3>
-          <h4 class="todays-date"></h4>
-          <ul class="todays-shows"></ul>
         </div>
     
       </section>

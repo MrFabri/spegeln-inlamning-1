@@ -59,10 +59,30 @@ header nav menu a {
   display: flex;
 }
 header nav menu a:hover {
-  transform: scale(1.2);
+  filter: contrast(80%);
 }
-header nav menu .active {
-  border-bottom: 4px solid white;
+header nav menu a::after {
+  content: "";
+  position: absolute;
+  bottom: -5%;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: rgb(255, 255, 255);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+header nav menu a:hover::after {
+  width: 100%;
+}
+header nav menu a.active::after {
+  width: 100%;
+}
+header nav menu a.active {
+  filter: contrast(80%);
 }
 
 .header-nav-toggle {
@@ -345,6 +365,7 @@ header nav menu .active {
   animation: fadein 1s forwards;
 }
 .accordion-cont .slider .slide img {
+  filter: brightness(90%);
   pointer-events: none;
   z-index: -1;
   position: absolute;
@@ -365,7 +386,20 @@ header nav menu .active {
 }
 @media screen and (max-width: 640px) {
   .accordion-cont {
-    display: none;
+    border: 4px solid rgb(255, 255, 255);
+  }
+  .accordion-cont .slider .slide .slide-content h2 {
+    font-size: 2rem;
+  }
+  .accordion-cont .slider .slide .slide-content h3 {
+    font-size: 1rem;
+  }
+  .accordion-cont .slider .slide .slide-content a {
+    padding: 0.2rem 2rem;
+    font-size: 0.9rem;
+  }
+  .accordion-cont .slider .slide img {
+    filter: brightness(70%);
   }
 }
 .footer {
@@ -692,6 +726,11 @@ p.banner-mov-desc {
   color: white;
 }
 
+@media screen and (max-width: 640px) {
+  .banner {
+    height: 14rem;
+  }
+}
 .main-container p {
   color: white;
 }
@@ -789,6 +828,31 @@ p.banner-mov-desc {
     margin: 1.5rem 0 0 1.5rem;
   }
 }
+.not-found {
+  margin-top: 3rem;
+}
+.not-found h1, .not-found p, .not-found a {
+  color: white;
+}
+.not-found h1 {
+  margin-bottom: 1rem;
+}
+.not-found p {
+  line-height: 2rem;
+}
+.not-found p span {
+  background-color: rgb(105, 105, 105);
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.8rem;
+}
+.not-found a {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #cc0028;
+}
+
 .on-the-cinema {
   margin-top: 3rem;
   display: flex;

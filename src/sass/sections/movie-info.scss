@@ -26,3 +26,9 @@
 p.banner-mov-desc {
     color: $second-color;
 }
+
+@media screen and (max-width: $breaking-point) {
+    .banner {
+        height: 14rem;
+    }
+}

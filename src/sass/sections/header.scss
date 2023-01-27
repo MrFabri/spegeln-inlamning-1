@@ -20,7 +20,7 @@ header {
       justify-content: space-evenly;
       list-style: none;
       a {
-        color: white;
+        color: $second-color;
         font-weight: bold;
         padding-top: 18px;
         padding-block-end: 22px;
@@ -30,11 +30,34 @@ header {
         display: flex;
 
         &:hover {
-          transform: scale(1.2);
+          filter: contrast(80%);
         }
-      }
-      .active {
-        border-bottom: 4px solid white;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -5%;
+          left: 0;
+          width: 0;
+          height: 4px;
+          background-color: rgb(255, 255, 255);
+          -webkit-transition: all 0.2s ease-in-out;
+          -moz-transition: all 0.2s ease-in-out;
+          -o-transition: all 0.2s ease-in-out;
+          -ms-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+
+        &.active::after{
+          width: 100%;
+        }
+        &.active {
+          filter: contrast(80%);
+        }
       }
     }
   }

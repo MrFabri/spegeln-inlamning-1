@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
+    "start": "node src/server.js",
     "test": "jest",
     "dev": "concurrently --kill-others \"npm run dev:server\" \"npm run watch\" ",
     "dev:server": "nodemon src/server.js",

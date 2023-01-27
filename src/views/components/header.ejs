@@ -5,16 +5,19 @@
             <button class="header-nav-toggle"></button>
             <menu class="header-menu">
                 <li>
-                    <a class="header-menu-item active" href="/">Hem</a>
+                    <a class="header-menu-item <% if(path === '/') { %>active<% }  %>" href="/">Hem</a>
                 </li>
+
                 <li>
-                    <a class="header-menu-item" href="/about-us">Om oss</a>
+                    <a class="header-menu-item <% if(path === '/movies'){ %>active<% }  %>" href="/movies">Filmer</a>
                 </li>
+
                 <li>
-                    <a class="header-menu-item" href="under-construction">Biljettinfo</a>
+                    <a class="header-menu-item <% if(path === '/about-us'){ %>active<% }  %>" href="/about-us">Om oss</a>
                 </li>
+
                 <li>
-                    <a class="header-menu-item" href="under-construction">Presentkort</a>
+                    <a class="header-menu-item <% if(path === '/restaurant'){ %>active<% }  %>" href="/restaurant">Restaurang</a>
                 </li>
             </menu>
         </nav>
