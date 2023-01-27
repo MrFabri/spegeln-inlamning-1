@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { marked } from 'marked';
 import { loadMovies, loadMovie } from '../helpers/movies.js';
 
 const router = Router();
@@ -11,7 +12,8 @@ router.get('/movie/:id', async (req, res)=> {
         res.render('movie', {
             title: `Film info | ${title}`,
             movie,
-            path: req.url
+            path: req.url,
+            markdown: md => marked.parse(md)
         });
     } else {
         res.status(404).render('404', {

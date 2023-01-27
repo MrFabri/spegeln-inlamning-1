@@ -1,15 +1,18 @@
 import { Router } from 'express';
 import { loadMovies } from '../helpers/movies.js';
+import { marked } from 'marked';
 
 const router = Router();
 const title = "Biograf Luleå";
+
 
 router.get('/', async (req, res)=> {
     const movies = await loadMovies();
     res.render('index', {
         title,
         movies,
-        path: req.url
+        path: req.url,
+        markdown: md => marked.parse(md)
     });
 });
 

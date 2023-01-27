@@ -11,7 +11,9 @@
           <h1> <%= movie.attributes.title %></h1>
           <img src="<%= movie.attributes.image.url %>" alt="movie image">
         </div>
-        <p class="banner-mov-desc"> <%= movie.attributes.intro %> </p>
+        <div class="banner-mov-desc">
+          <%- markdown(movie.attributes.intro) %> 
+        </div>
       </section>
     </main>
 

@@ -23,10 +23,10 @@
                     <section class="slide">
                         <div class="slide-content">
                             <h2><%= movie.attributes.title %></h2>
-                            <h3><%= movie.attributes.intro.substr(0, 60)  %>...</h3>
+                            <h3><%- markdown(movie.attributes.intro) %></h3>
                             <a href="/movie/<%= movie.id %>" class="slide-btn">Biljetter</a>
                         </div>
-                        <img src="<%= movie.attributes.image.url %>"
+                        <img src="<%= movie.attributes.image.url%>"
                             alt="movie banner" />
                     </section>
                     <% }); %>
@@ -45,11 +45,6 @@
                         </a>
                     <% }); %>
                 </ul>
-            </div>
-    
-            <div class="sidebar sec-cont">
-                <h3>Dagens visningar:</h3>
-                <h4 class="todays-date"></h4>
             </div>
         </section>
     </main>

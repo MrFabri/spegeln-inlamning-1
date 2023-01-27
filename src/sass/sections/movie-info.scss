@@ -8,8 +8,9 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: .5rem;
+        border-radius: 1rem;
         pointer-events: none;
+        border: .2rem solid white;
     }
 
     h1 {
@@ -23,8 +24,9 @@
     }
 }
 
-p.banner-mov-desc {
+.banner-mov-desc {
     color: $second-color;
+    font-size: 1.3rem;
 }
 
 @media screen and (max-width: $breaking-point) {
